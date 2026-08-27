@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Firewall</title>
+    <style>
+        body{
+            background-color:#e3f2fd;
+            font-family:Arial;
+        }
+        .box{
+            width:350px;
+            margin:80px auto;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            text-align:center;
+            box-shadow:0 0 10px gray;
+        }
+        input{
+            width:90%;
+            padding:8px;
+            margin:8px;
+        }
+        button{
+            background:blue;
+            color:white;
+            padding:10px 20px;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+        .safe{
+            color:green;
+        }
+        .attack{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+<h1>AI Firewall</h1>
+<form method="POST">
+Packet Size<br>
+<input type="number" name="packet_size" required><br>
+Request Rate<br>
+<input type="number" name="request_rate" required><br>
+Failed Logins<br>
+<input type="number" name="failed_logins" required><br><br>
+<button type="submit">Check</button>
+</form>
+{% if result=="Safe Traffic" %}
+<h2 class="safe">{{result}}</h2>
+{% elif result=="Attack Detected" %}
+<h2 class="attack">{{result}}</h2>
+{% endif %}
+</div>
+</body>
+</html>
